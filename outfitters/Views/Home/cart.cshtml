@@ -1,0 +1,115 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart Widget Flat Responsive Widget Template :: w3layouts</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Shopping Cart Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="~/Content/stylee.css" rel="stylesheet" type="text/css" media="all" />
+<link href='//fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="~/Script/jquery-1.11.1.min.js"></script>
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.message2').fadeOut('slow', function(c){
+	  		$('.message2').remove();
+		});
+	});	  
+});
+</script>
+</head>
+<body>
+	<!-- main -->
+    @{
+    
+    foreach(var s in Session["cart"])
+        {
+         <text><h1>s</h1></text>
+       
+    
+        }
+
+    }
+    
+		<div class="main">
+			<h1>Shopping Cart Widget</h1>
+			<div class="main-grid1">
+				<ul>
+					<li><a href="#" class="car">YOUR CART</a></li>
+				</ul>
+			</div>
+			<div class="main-grid2">
+				<h2>My Shopping Bag (3)</h2>
+				<div class="cart_box">
+					<div class="message">
+						 <div class="alert-close"> </div> 
+						<div class="list_img"><img src="images/1.jpg" class="img-responsive" alt=""/></div>
+						<div class="list_desc"><h4><a href="#">Velit esse molestie</a></h4><span class="actual">
+						 $30.00</span></div>
+						  <div class="clear"></div>
+					</div>
+				</div>
+				<div class="cart_box">
+				 <div class="message1">
+					 <div class="alert-close1"> </div> 
+					<div class="list_img"><img src="images/2.jpg" class="img-responsive" alt=""/></div>
+					<div class="list_desc"><h4><a href="#">Velit esse molestie</a></h4><span class="actual">
+					 $15.00</span></div>
+					  <div class="clear"></div>
+				  </div>
+				</div>
+				<div class="cart_box1">
+				  <div class="message2">
+					 <div class="alert-close2"> </div> 
+					<div class="list_img"><img src="images/3.jpg" class="img-responsive" alt=""/></div>
+					<div class="list_desc"><h4><a href="#">Velit esse molestie</a></h4><span class="actual">
+					 $20.00</span></div>
+					  <div class="clear"></div>
+				  </div>
+				</div>
+				<div class="total">
+					<div class="total-left">
+						<p>Total :<span> $65</span></p>
+					</div>
+					<div class="total-right">
+						<a href="#">Check Out</a>
+					</div>
+					<div class="clear"> </div>
+				</div>
+			</div>
+			<div class="copy-right">
+				<p>Copyright &copy; 2015 Shopping Cart Widget. All rights  Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			</div>
+		</div>
+	<!-- //main -->
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="outfiterModelStoreContainer" CdmEntityContainer="outfiterEntities1">
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="outfiterModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="adress_" ColumnName="adress " />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+          <ScalarProperty Name="orderid_" ColumnName="orderid " />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="outfiterModel.order">
+        <MappingFragment StoreEntitySet="order">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="status_" ColumnName="status " />
+          <ScalarProperty Name="productid" ColumnName="productid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="outfiterModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="catagory" ColumnName="catagory" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="imgf" ColumnName="imgf" />
+          <ScalarProperty Name="imgb" ColumnName="imgb" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="singups">
+      <EntityTypeMapping TypeName="outfiterModel.singup">
+        <MappingFragment StoreEntitySet="singup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stocks">
+      <EntityTypeMapping TypeName="outfiterModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="quantity_" ColumnName="quantity " />
+          <ScalarProperty Name="productid" ColumnName="productid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

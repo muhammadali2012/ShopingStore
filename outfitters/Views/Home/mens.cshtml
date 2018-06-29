@@ -1,0 +1,382 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model List<outfitters.Models.productholder>
+<!--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!-- Header-Top-Bar-(Hidden) -->
+<div class="agileheader-topbar">
+    <div class="container">
+        <div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid1">
+            <p>Free shipping on orders over $150. <a href="payment.html">Details</a></p>
+        </div>
+        <div class="col-md-6 agileheader-topbar-grid agileheader-topbar-grid2">
+            <ul>
+                <li><a href="~/Views/Home/stores.cshtml">Store Locator</a></li>
+                <li><a href="~/Views/Home/faq.cshtml">FAQ</a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog1">Login</a></li>
+                <li><a class="popup-with-zoom-anim" href="#small-dialog2">Sign Up</a></li>
+                <li><a href="~/Views/Home/codes.cshtml">Codes</a></li>
+                <li><a href="~/Views/Home/icons.cshtml">Icons</a></li>
+                <li><a href="~/Views/Home/contactcs.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+
+
+</div>
+<!-- //Header-Top-Bar-(Hidden) -->
+<!-- Popup-Box -->
+<div id="popup1">
+    <div id="small-dialog1" class="mfp-hide agileinfo">
+        <div class="pop_up">
+            <form action="#" method="post">
+                <h3>LOGIN</h3>
+                <input type="text" Name="Userame" placeholder="Username" required="">
+                <input type="password" Name="Password" placeholder="Password" required="">
+                <ul class="tick w3layouts agileinfo">
+                    <li>
+                        <input type="checkbox" id="brand1" value="">
+                        <label for="brand1"><span></span>Remember me</label>
+                    </li>
+                    <li>
+                        <a href="#">Forgot Password?</a>
+                    </li>
+                </ul>
+                <div class="send-button wthree agileits">
+                    <input type="submit" value="LOGIN">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="small-dialog2" class="mfp-hide agileinfo">
+        <div class="pop_up">
+            <form action="#" method="post">
+                <h3>SIGN UP</h3>
+                <input type="text" Name="Name" placeholder="Name" required="">
+                <input type="text" Name="Email" placeholder="Email" required="">
+                <input type="password" Name="Password" placeholder="Password" required="">
+                <input type="text" Name="Phone Number" placeholder="Phone Number" required="">
+                <div class="send-button wthree agileits">
+                    <input type="submit" value="SIGN UP">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- //Popup-Box -->
+<!-- Banner -->
+<div class="agileheader-banner w3mensaits">
+    <img src="~/images/mens-banner.jpg" alt="Groovy Apparel">
+</div>
+<!-- //Banner -->
+<!-- Heading -->
+<h1 class="w3wthreeheadingaits">MEN'S CLOTHING</h1>
+<!-- //Heading -->
+
+@{
+    var i = 0;
+}
+
+@for (var j = 0; j < (Model.Count) / 3;)
+{
+
+
+    <!-- Men's-Product-Display -->
+    <div class="wthreeproductdisplay">
+        <div id="cbp-pgcontainer" class="cbp-pgcontainer">
+            <ul class="cbp-pggrid">
+                <li class="wthree aits w3l">
+                    
+                    <div class="cbp-pgcontent" id="men-8">
+                        <span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                        <a href="#">
+                            <div class="cbp-pgitem a3ls">
+                                <div class="cbp-pgitem-flip">
+                                    <img src="@Model[i].imgf" alt="Groovy Apparel">
+                                    <img src="@Model[i].imgb" alt="Groovy Apparel">
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="cbp-pgoptions w3l">
+                            <li class="cbp-pgoptcompare">
+                                <input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3"><label for="checkboxG8" class="css-label"></label>
+                            </li>
+                            <li class="cbp-pgoptfav">
+                                <span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+                            </li>
+                            <li class="cbp-pgoptsize agile">
+                               <span data-size="XL">BUY </span>
+                                <div class="cbp-pgopttooltip">
+                                    
+                                </div>
+                            </li>
+
+
+
+
+
+
+
+
+
+
+                            <li class="cbp-pgoptcart">
+                                 <button  onclick="myFunction(@Model[i].id)" type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="false"></i></button>
+                                    <span class="w3-agile-line"> </span>
+                            </li>
+
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </ul>
+                    </div>
+                    <a href="mens_single.html">
+                        <div class="cbp-pginfo w3layouts">
+                            <h3>@Model[i].name</h3>
+                            <span class="cbp-pgprice">$@Model[i].price</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="wthree aits w3l">
+                    <div class="cbp-pgcontent" id="men-8">
+                        <span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                        <a href="mens_single.html">
+                            <div class="cbp-pgitem a3ls">
+                                <div class="cbp-pgitem-flip">
+                                    <img src="@Model[i + 1].imgf" alt="Groovy Apparel">
+                                    <img src="@Model[i + 1].imgb" alt="Groovy Apparel">
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="cbp-pgoptions w3l">
+                            <li class="cbp-pgoptcompare">
+                                <input   type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3"><label for="checkboxG8" class="css-label"></label>
+                            </li>
+                            <li class="cbp-pgoptfav">
+                                <span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+                            </li>
+                            <li class="cbp-pgoptsize agile">
+                                <span data-size="XL">XL</span>
+                                <div class="cbp-pgopttooltip">
+                                    <span data-size="XL">XL</span>
+                                    <span data-size="L">L</span>
+                                    <span data-size="M">M</span>
+                                    <span data-size="S">S</span>
+                                </div>
+                            </li>
+                            <li class="cbp-pgoptcart">
+                                <button onclick="myFunction(@Model[i + 1].id)" type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="false"></i></button>
+                                <span class="w3-agile-line"> </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="mens_single.html">
+                        <div class="cbp-pginfo w3layouts">
+                            <h3>@Model[i + 1].name </h3>
+                            <span class="cbp-pgprice">$@Model[i + 1].price</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="wthree aits w3l">
+                    <div class="cbp-pgcontent" id="men-8">
+                        <span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                        <a href="mens_single.html">
+                            <div class="cbp-pgitem a3ls">
+                                <div class="cbp-pgitem-flip">
+                                    <img src="@Model[i + 2].imgf" alt="Groovy Apparel">
+                                    <img src="@Model[i + 2].imgb" alt="Groovy Apparel">
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="cbp-pgoptions w3l">
+                            <li class="cbp-pgoptcompare">
+                                <input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3"><label for="checkboxG8" class="css-label"></label>
+                            </li>
+                            <li class="cbp-pgoptfav">
+                                <span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+                            </li>
+                            <li class="cbp-pgoptsize agile">
+                                <span data-size="XL">XL</span>
+                                <div class="cbp-pgopttooltip">
+                                    <span data-size="XL">XL</span>
+                                    <span data-size="L">L</span>
+                                    <span data-size="M">M</span>
+                                    <span data-size="S">S</span>
+                                </div>
+                            </li>
+                            <li class="cbp-pgoptcart">
+                                <button onclick="myFunction(@Model[i + 2].id)" id="cart" type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="false"></i></button>
+                                <span class="w3-agile-line"> </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="mens_single.html">
+                        <div class="cbp-pginfo w3layouts">
+                            <h3>@Model[i + 2].name  </h3>
+                            <span class="cbp-pgprice">$@Model[i + 2].price</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    i = i + 3;
+
+    j = j + 1;
+}
+
+@for (var j = i; j < (Model.Count); j++)
+{
+    <div class="wthreeproductdisplay">
+        <div id="cbp-pgcontainer" class="cbp-pgcontainer">
+            <ul class="cbp-pggrid">
+
+
+                <li class="wthree aits w3l">
+                    <div class="cbp-pgcontent" id="men-8">
+                        <span class="cbp-pgrotate"><i class="fa fa-exchange" aria-hidden="true"></i></span>
+                        <a href="mens_single.html">
+                            <div class="cbp-pgitem a3ls">
+                                <div class="cbp-pgitem-flip">
+                                    <img src="@Model[j].imgf" alt="Groovy Apparel">
+                                    <img src="@Model[j] imgb" alt="Groovy Apparel">
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="cbp-pgoptions w3l">
+                            <li class="cbp-pgoptcompare">
+                                <input type="checkbox" name="checkboxG8" id="checkboxG8" class="css-checkbox w3"><label for="checkboxG8" class="css-label"></label>
+                            </li>
+                            <li class="cbp-pgoptfav">
+                                <span>5 <i class="fa fa-star" aria-hidden="true"></i></span>
+                            </li>
+                            <li class="cbp-pgoptsize agile">
+                                <span data-size="XL">XL</span>
+                                <div class="cbp-pgopttooltip">
+                                    <span data-size="XL">XL</span>
+                                    <span data-size="L">L</span>
+                                    <span data-size="M">M</span>
+                                    <span data-size="S">S</span>
+                                </div>
+                            </li>
+                            <li class="cbp-pgoptcart">
+                                <button onclick="myFunction(@Model[j].id)" type="submit" class="w3l-cart pw3l-cart"><i class="fa fa-cart-plus" aria-hidden="false"></i></button>
+                                <span class="w3-agile-line"> </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="mens_single.html">
+                        <div class="cbp-pginfo w3layouts">
+                            <h3>@Model[j].name</h3>
+                            <span class="cbp-pgprice">$@Model[j].price</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+}
+
+
+
+<!-- //Men's-Product-Display -->
+<!-- Newsletter -->
+<div class="agileinfonewsl">
+
+    <h3>SIGN UP FOR NEWSLETTER</h3>
+    <p>Subscribe to us to get highest-level access to our new styles and trends</p>
+    <div class="wthreeshop-a">
+        <a class="popup-with-zoom-anim" href="#small-dialog3">SUBSCRIBE</a>
+    </div>
+
+    <!-- Popup-Box -->
+    <div id="popup2">
+        <div id="small-dialog3" class="mfp-hide agileinfo">
+            <div class="pop_up">
+                <h4>SUBSCRIBE</h4>
+                <form action="#" method="post">
+                    <input class="email aitsw3ls" type="email" placeholder="Email" required="">
+                    <input type="submit" class="submit" value="SUBSCRIBE">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- //Popup-Box -->
+
+</div>
+<!-- //Newsletter -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+
+    
+
+
+                                  
+                                        function myFunction(kpk)
+                                        {
+
+
+
+                                            $.getJSON("/home/Idholder?ID=" + kpk);
+                                            alert("your product is added to cart go to view cart to buy  " + kpk);
+                                            
+
+
+                                        }
+
+
+                                    
+                                      
+</script>
+
+

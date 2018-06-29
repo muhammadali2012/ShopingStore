@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="outfitersModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+    <Property Name="price_" Type="Int32" />
+    <Property Name="imgf" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+    <Property Name="imgb" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+    <Property Name="quantity" Type="Int32" />
+  </EntityType>
+  <EntityType Name="singup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name_" Type="String" MaxLength="99" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="99" FixedLength="true" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="99" FixedLength="true" Unicode="true" />
+    <Property Name="phonenumber" Type="String" MaxLength="99" FixedLength="true" Unicode="true" />
+    <Property Name="adress" Type="String" MaxLength="99" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="outfitersEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="items" EntityType="Self.item" />
+    <EntitySet Name="singups" EntityType="Self.singup" />
+  </EntityContainer>
+</Schema>

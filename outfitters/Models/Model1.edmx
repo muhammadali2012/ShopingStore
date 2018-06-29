@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="outfiterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+          <Property Name="adress " Type="nchar" MaxLength="10" />
+          <Property Name="phonenumber" Type="nchar" MaxLength="10" />
+          <Property Name="orderid " Type="int" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status " Type="nchar" MaxLength="10" />
+          <Property Name="productid" Type="int" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="55" />
+          <Property Name="catagory" Type="nchar" MaxLength="55" />
+          <Property Name="price" Type="int" />
+          <Property Name="imgf" Type="nchar" MaxLength="500" />
+          <Property Name="imgb" Type="nchar" MaxLength="500" />
+          <Property Name="date" Type="date" />
+          <Property Name="discount" Type="int" />
+        </EntityType>
+        <EntityType Name="singup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="55" />
+          <Property Name="email" Type="nchar" MaxLength="55" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="55" />
+          <Property Name="phonenumber" Type="nchar" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantity " Type="nchar" MaxLength="10" />
+          <Property Name="productid" Type="int" />
+        </EntityType>
+        <Association Name="fk1">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk3">
+          <End Role="order" Type="Self.order" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="orderid " />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="outfiterModelStoreContainer">
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="singup" EntityType="Self.singup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk1" Association="Self.fk1">
+            <End Role="product" EntitySet="product" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk2" Association="Self.fk2">
+            <End Role="product" EntitySet="product" />
+            <End Role="order" EntitySet="order" />
+          </AssociationSet>
+          <AssociationSet Name="fk3" Association="Self.fk3">
+            <End Role="order" EntitySet="order" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="outfiterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="adress_" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="phonenumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="orderid_" Type="Int32" />
+          <NavigationProperty Name="order" Relationship="Self.fk3" FromRole="customer" ToRole="order" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status_" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="productid" Type="Int32" />
+          <NavigationProperty Name="customers" Relationship="Self.fk3" FromRole="order" ToRole="customer" />
+          <NavigationProperty Name="product" Relationship="Self.fk2" FromRole="order" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+          <Property Name="catagory" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="imgf" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="imgb" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="discount" Type="Int32" />
+          <NavigationProperty Name="orders" Relationship="Self.fk2" FromRole="product" ToRole="order" />
+          <NavigationProperty Name="stocks" Relationship="Self.fk1" FromRole="product" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="singup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="55" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="55" FixedLength="true" Unicode="true" />
+          <Property Name="phonenumber" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantity_" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="productid" Type="Int32" />
+          <NavigationProperty Name="product" Relationship="Self.fk1" FromRole="stock" ToRole="product" />
+        </EntityType>
+        <Association Name="fk3">
+          <End Role="order" Type="Self.order" Multiplicity="0..1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="orderid_" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="order" Type="Self.order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="order">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk1">
+          <End Role="product" Type="Self.product" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="productid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="outfiterEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="singups" EntityType="Self.singup" />
+          <EntitySet Name="stocks" EntityType="Self.stock" />
+          <AssociationSet Name="fk3" Association="Self.fk3">
+            <End Role="order" EntitySet="orders" />
+            <End Role="customer" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="fk2" Association="Self.fk2">
+            <End Role="product" EntitySet="products" />
+            <End Role="order" EntitySet="orders" />
+          </AssociationSet>
+          <AssociationSet Name="fk1" Association="Self.fk1">
+            <End Role="product" EntitySet="products" />
+            <End Role="stock" EntitySet="stocks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="outfiterModelStoreContainer" CdmEntityContainer="outfiterEntities1">
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="outfiterModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="adress_" ColumnName="adress " />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="orderid_" ColumnName="orderid " />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="outfiterModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="status_" ColumnName="status " />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="outfiterModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="catagory" ColumnName="catagory" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="imgf" ColumnName="imgf" />
+                <ScalarProperty Name="imgb" ColumnName="imgb" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="singups">
+            <EntityTypeMapping TypeName="outfiterModel.singup">
+              <MappingFragment StoreEntitySet="singup">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stocks">
+            <EntityTypeMapping TypeName="outfiterModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="quantity_" ColumnName="quantity " />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

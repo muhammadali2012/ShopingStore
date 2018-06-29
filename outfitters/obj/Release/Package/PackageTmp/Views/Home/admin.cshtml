@@ -1,0 +1,74 @@
+﻿@model outfitters.Models.product
+
+
+<h2>Add Product </h2>
+<h2></h2>
+
+@using (Html.BeginForm("admin", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <fieldset>
+        <legend>product</legend>
+
+
+
+        <!--------name-------->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+        <!------------->
+        <!------------price-->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price);
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.price)
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+        <!---------------->
+        <!----------------discount------------->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.discount);
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.discount)
+            @Html.ValidationMessageFor(model => model.discount)
+        </div>
+        <!---------------------------->
+        <!----- catagory-->
+
+        <select id="cat" name="catagory">
+
+            <option value="menlegs">menlegs</option>
+            <option value="menjacket">menjacket</option>
+            <option value="womentop">womentop</option>
+            <option value="womenlegs">womenlegs</option>
+            <option value="womenacess">womenacess</option>
+            <option value="menacess">menacess</option>
+            <option value="acess">acess</option>
+        </select>
+        
+
+        <!---------------->
+
+
+        <input type="file" name="FileUploadf" />
+        <input type="file" name="FileUploadb" />
+  
+
+
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+        
+    </fieldset>
+}
+
+        
+
+   
+
